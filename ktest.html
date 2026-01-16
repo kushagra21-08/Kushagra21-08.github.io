@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Kush — controlled chaos&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">:root{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--bg:#07070d;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--card:#12121c;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--text:#f4f4ff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--pink:#ff5ec4;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--blue:#5ee7ff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--green:#aaff5e;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--orange:#ffb15e;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">*{box-sizing:border-box;font-family:monospace}</p>
+<p class="p2"><br></p>
+<p class="p1">body{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin:0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>min-height:100vh;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">    </span>repeating-linear-gradient(</p>
+<p class="p1"><span class="Apple-converted-space">      </span>45deg,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>rgba(255,255,255,0.02) 0px,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>rgba(255,255,255,0.02) 1px,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transparent 1px,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transparent 8px</p>
+<p class="p1"><span class="Apple-converted-space">    </span>),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>radial-gradient(circle at 15% 20%, rgba(255,94,196,.25), transparent 40%),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>radial-gradient(circle at 85% 30%, rgba(94,231,255,.25), transparent 40%),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>radial-gradient(circle at 50% 85%, rgba(170,255,94,.18), transparent 40%),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:40px 20px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.container{max-width:1000px;margin:auto}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== GLITCH TITLE ===== */</p>
+<p class="p2"><br></p>
+<p class="p1">.glitch{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size:clamp(3rem,6vw,4.2rem);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight:900;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display:inline-block;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.glitch::before,</p>
+<p class="p1">.glitch::after{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>content:attr(data-text);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position:absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>left:0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top:0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>opacity:.8;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.glitch::before{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--pink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transform:translate(3px,-2px);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>clip-path:polygon(0 0,100% 0,100% 45%,0 45%);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.glitch::after{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--blue);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transform:translate(-3px,2px);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== HERO ===== */</p>
+<p class="p2"><br></p>
+<p class="p1">.hero{margin-bottom:40px}</p>
+<p class="p2"><br></p>
+<p class="p1">.subtitle{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top:10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size:1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:#cfcfff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width:720px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== CARDS ===== */</p>
+<p class="p2"><br></p>
+<p class="p1">.card{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:linear-gradient(145deg,var(--card),#0b0b14);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius:18px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:28px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom:28px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:1px solid rgba(255,255,255,.08);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-shadow:0 20px 60px rgba(0,0,0,.6);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transition:.25s ease;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.card:hover{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transform:rotate(-0.6deg) scale(1.02);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-shadow:0 30px 80px rgba(255,94,196,.15);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.card h3{margin-top:0;color:var(--blue)}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== TERMINAL ===== */</p>
+<p class="p2"><br></p>
+<p class="p1">.terminal{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:#05050a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius:14px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:20px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:1px solid rgba(255,255,255,.1);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size:.95rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height:1.6;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.prompt{color:var(--green)}</p>
+<p class="p1">.cmd{color:var(--blue)}</p>
+<p class="p1">.out{color:#ddd}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== THOUGHT CLOUD ===== */</p>
+<p class="p2"><br></p>
+<p class="p1">.cloud{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>flex-wrap:wrap;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>gap:12px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top:16px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.thought{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding:8px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background:rgba(255,255,255,.06);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border:1px solid rgba(255,255,255,.12);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>animation:float 6s ease-in-out infinite;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.thought:nth-child(2){animation-delay:1s}</p>
+<p class="p1">.thought:nth-child(3){animation-delay:2s}</p>
+<p class="p1">.thought:nth-child(4){animation-delay:3s}</p>
+<p class="p2"><br></p>
+<p class="p1">@keyframes float{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>0%,100%{transform:translateY(0)}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>50%{transform:translateY(-8px)}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ===== LINKS ===== */</p>
+<p class="p2"><br></p>
+<p class="p1">a{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:var(--orange);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-decoration:none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-bottom:1px dashed rgba(255,177,94,.6);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">footer{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size:.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color:#9a9ab5;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top:20px;</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div class="container"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="glitch" data-text="Hi, I’m Kush."&gt;Hi, I’m Kush.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="subtitle"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>I like breaking things until they explain themselves.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Curiosity first. Clean explanations second. Ego never.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Live brain dump (approximate)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="terminal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;&lt;span class="prompt"&gt;kush@brain:~$&lt;/span&gt; &lt;span class="cmd"&gt;simulate intuition&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="out"&gt;error: intuition unreliable under pressure&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;&lt;span class="prompt"&gt;kush@brain:~$&lt;/span&gt; &lt;span class="cmd"&gt;add models &amp; simulations&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="out"&gt;ok: behavior stabilizing&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;&lt;span class="prompt"&gt;kush@brain:~$&lt;/span&gt; &lt;span class="cmd"&gt;optimize understanding&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="out"&gt;note: explanation feels suspiciously simple&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;&lt;span class="prompt"&gt;kush@brain:~$&lt;/span&gt; &lt;span class="cmd"&gt;proceed anyway&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="out"&gt;approved. learning in progress.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;How I tend to build things&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>I usually start with a rough mental model, break it quickly,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>and then rebuild it cleaner. I prefer small simulations and</p>
+<p class="p1"><span class="Apple-converted-space">      </span>thought experiments over memorizing rules. If something</p>
+<p class="p1"><span class="Apple-converted-space">      </span>doesn’t survive stress-testing, it doesn’t get to stay.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;What occupies my mental RAM&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cloud"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thought"&gt;physics that feels illegal&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thought"&gt;systems &amp; feedback loops&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thought"&gt;simulations over intuition&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thought"&gt;why stuff breaks&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thought"&gt;aerospace-adjacent ideas&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="thought"&gt;simple rules → complex behavior&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Things I care about (probably too much)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Clear thinking. Honest curiosity. Explanations that actually</p>
+<p class="p1"><span class="Apple-converted-space">      </span>compress reality instead of decorating it. I like ideas that</p>
+<p class="p1"><span class="Apple-converted-space">      </span>survive contact with edge cases.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Currently tinkering with&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Small simulations, problem-solving under constraints, and</p>
+<p class="p1"><span class="Apple-converted-space">      </span>figuring out why being “slow but right” sometimes beats being</p>
+<p class="p1"><span class="Apple-converted-space">      </span>“fast but shallow.”</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Internet traces&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Mostly quiet. Mostly building.</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://github.com/Kushagra21-08" target="_blank"&gt;github.come&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>This site is a work in progress. So am I.</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
