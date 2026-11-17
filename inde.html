@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kushagra Srivastava — Under Construction</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#f5f4ef;
+  --ink:#22221e;
+  --lime:#d8f36b;
+  --muted:#929087;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+body {
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  overflow:hidden;
+  cursor:crosshair;
+}
+
+.noise {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10;
+  opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+
+header, footer {
+  position:absolute;
+  left:6%;
+  right:6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:5;
+}
+
+header { top:35px; }
+footer { bottom:30px; }
+
+.brand {
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:-.5px;
+}
+
+.meta {
+  font:10px 'DM Mono',monospace;
+  color:var(--muted);
+  letter-spacing:.5px;
+}
+
+.status {
+  display:flex;
+  gap:9px;
+  align-items:center;
+}
+
+.status i {
+  width:7px;height:7px;
+  border-radius:50%;
+  background:#a6c76b;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% { box-shadow:0 0 0 7px #a6c76b20; }
+}
+
+/* THE BACKGROUND WORLD */
+
+.world {
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.blob {
+  position:absolute;
+  width:min(55vw,650px);
+  aspect-ratio:1;
+  left:57%;
+  top:48%;
+  background:var(--lime);
+  border-radius:42% 58% 66% 34% / 48% 41% 59% 52%;
+  filter:blur(1px);
+  transform:translate(-50%,-50%);
+  animation:morph 13s ease-in-out infinite alternate;
+  opacity:.75;
+  will-change:border-radius,transform;
+}
+
+@keyframes morph {
+  0% {
+    border-radius:42% 58% 66% 34% / 48% 41% 59% 52%;
+  }
+  33% {
+    border-radius:61% 39% 35% 65% / 52% 58% 42% 48%;
+  }
+  66% {
+    border-radius:35% 65% 52% 48% / 61% 39% 61% 39%;
+  }
+  100% {
+    border-radius:57% 43% 43% 57% / 37% 64% 36% 63%;
+  }
+}
+
+.orbit {
+  position:absolute;
+  width:min(72vw,800px);
+  aspect-ratio:1;
+  left:57%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  border:1px solid #25251e20;
+  border-radius:50%;
+  animation:orbit 24s linear infinite;
+}
+
+.orbit.two {
+  width:min(86vw,1000px);
+  animation-duration:38s;
+  animation-direction:reverse;
+}
+
+@keyframes orbit { to { transform:translate(-50%,-50%) rotate(360deg); } }
+
+.planet {
+  position:absolute;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#292923;
+  top:12%;
+  left:50%;
+}
+
+.orbit.two .planet {
+  background:#ef987d;
+  width:25px;
+  height:25px;
+  top:50%;
+  left:0;
+}
+
+.mini {
+  position:absolute;
+  font-size:26px;
+  animation:float 5s ease-in-out infinite;
+}
+
+.mini.one { top:20%;left:72%; }
+.mini.two { bottom:25%;left:78%;animation-delay:-2s; }
+.mini.three { top:70%;left:18%;animation-delay:-3s; }
+
+@keyframes float {
+  50% { transform:translateY(-22px) rotate(15deg); }
+}
+
+/* MAIN CONTENT */
+
+main {
+  position:absolute;
+  left:12%;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  width:75%;
+}
+
+.eyebrow {
+  font:11px 'DM Mono',monospace;
+  color:var(--muted);
+  letter-spacing:1.5px;
+  margin-bottom:28px;
+  animation:reveal .8s both;
+}
+
+h1 {
+  font-size:clamp(70px,11vw,145px);
+  line-height:.84;
+  letter-spacing:-.095em;
+  font-weight:600;
+}
+
+.line {
+  display:block;
+  overflow:hidden;
+  padding-bottom:.08em;
+}
+
+.word {
+  display:inline-block;
+  animation:wordIn 1s cubic-bezier(.16,1,.3,1) both;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+
+.line:nth-child(2) .word { animation-delay:.15s; }
+
+.word:hover {
+  transform:rotate(-4deg) translateY(-8px);
+}
+
+.grey { color:#aaa99f; }
+
+.highlight {
+  position:relative;
+  display:inline-block;
+}
+
+.highlight::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:8px;
+  width:100%;
+  background:var(--lime);
+  z-index:-1;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:draw 1s 1s forwards;
+}
+
+@keyframes wordIn {
+  from { transform:translateY(110%); }
+  to { transform:translateY(0); }
+}
+
+@keyframes reveal {
+  from { opacity:0;transform:translateY(15px); }
+  to { opacity:1;transform:translateY(0); }
+}
+
+@keyframes draw { to { transform:scaleX(1); } }
+
+.description {
+  font-size:15px;
+  color:#77766f;
+  line-height:1.8;
+  max-width:350px;
+  margin-top:38px;
+  animation:reveal 1s .6s both;
+}
+
+/* CURSOR CREATURE */
+
+.creature {
+  position:fixed;
+  width:46px;
+  height:46px;
+  z-index:8;
+  pointer-events:none;
+  left:0;top:0;
+  transform:translate(-50%,-50%);
+  transition:scale .3s;
+}
+
+.creature svg { width:100%;height:100%;overflow:visible; }
+
+.eye {
+  animation:blink 4s infinite;
+  transform-origin:center;
+}
+
+@keyframes blink {
+  0%,45%,48%,100% { transform:scaleY(1); }
+  46%,47% { transform:scaleY(.1); }
+}
+
+/* FLOATING LABELS */
+
+.label {
+  position:absolute;
+  font:9px 'DM Mono',monospace;
+  color:#858278;
+  border:1px solid #d9d7ce;
+  border-radius:30px;
+  padding:8px 12px;
+  animation:float 6s infinite ease-in-out;
+  z-index:2;
+}
+
+.label.a { top:27%;right:13%; }
+.label.b { bottom:23%;right:24%;animation-delay:-3s; }
+
+/* FOOTER */
+
+footer {
+  border-top:1px solid #dfded6;
+  padding-top:18px;
+}
+
+footer span { transition:color .3s; }
+footer span:hover { color:#222; }
+
+@media(max-width:700px) {
+  header { top:25px; }
+  footer { bottom:22px; }
+  main { left:7%;width:88%; }
+  h1 { font-size:clamp(65px,14vw,100px); }
+  .blob { width:95vw;left:75%; }
+  .orbit { width:110vw;left:75%; }
+  .orbit.two { width:125vw;left:75%; }
+  .label.a { right:7%;top:24%; }
+  .label.b { right:10%;bottom:19%; }
+  .creature { display:none; }
+  .meta { font-size:8px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<header>
+  <div class="brand">Kushagra Srivastava.</div>
+  <div class="status meta"><i></i> SOMETHING IS BREWING</div>
+</header>
+
+<div class="world">
+  <div class="blob" id="blob"></div>
+
+  <div class="orbit">
+    <div class="planet"></div>
+  </div>
+
+  <div class="orbit two">
+    <div class="planet"></div>
+  </div>
+
+  <div class="mini one">✳</div>
+  <div class="mini two">✦</div>
+  <div class="mini three">✳</div>
+</div>
+
+<div class="label a">CURRENTLY FIGURING IT OUT ↗</div>
+<div class="label b">EST. WHENEVER</div>
+
+<main>
+  <div class="eyebrow">A LITTLE PREMATURE, PERHAPS.</div>
+
+  <h1>
+    <span class="line"><span class="word">Oops.</span></span>
+    <span class="line"><span class="word">Too <span class="grey highlight">early.</span></span></span>
+  </h1>
+
+  <p class="description">
+    I'm Kushagra. I build things, explore ideas,
+    and occasionally overthink them.
+    This little corner of the internet is still
+    finding its shape.
+  </p>
+</main>
+
+<div class="creature" id="creature">
+  <svg viewBox="0 0 50 50" fill="none">
+    <path d="M25 4 C39 4 47 16 44 29 C42 42 32 47 20 43 C7 39 3 28 7 16 C10 8 17 4 25 4Z"
+      fill="#22221e"/>
+    <ellipse class="eye" cx="19" cy="23" rx="3" ry="4" fill="#f5f4ef"/>
+    <ellipse class="eye" cx="32" cy="23" rx="3" ry="4" fill="#f5f4ef"/>
+    <path d="M20 33 Q25 38 31 33" stroke="#f5f4ef" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<footer class="meta">
+  <span>© 2026 KUSHAGRA</span>
+  <span>MADE WITH CURIOSITY ↗</span>
+</footer>
+
+<script>
+const creature = document.getElementById('creature');
+const blob = document.getElementById('blob');
+
+let mouseX = innerWidth / 2;
+let mouseY = innerHeight / 2;
+let currentX = mouseX;
+let currentY = mouseY;
+
+window.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  // The background reacts gently to the cursor
+  const x = (e.clientX / innerWidth - .5) * 25;
+  const y = (e.clientY / innerHeight - .5) * 25;
+  blob.style.marginLeft = x + 'px';
+  blob.style.marginTop = y + 'px';
+});
+
+function animate() {
+  currentX += (mouseX - currentX) * .09;
+  currentY += (mouseY - currentY) * .09;
+
+  creature.style.left = currentX + 'px';
+  creature.style.top = currentY + 'px';
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+// Make the little creature react to clicks
+document.addEventListener('click', () => {
+  creature.style.scale = '1.5';
+  setTimeout(() => creature.style.scale = '1', 180);
+});
+</script>
+
+</body>
+</html>
